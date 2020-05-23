@@ -1,4 +1,5 @@
 import 'package:clean/app_localizations.dart';
+import 'package:clean/presentation/base/view/app_button.dart';
 import 'package:clean/presentation/base/view_model/base_view_model.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -24,9 +25,12 @@ class LoginScreen extends StatelessWidget {
               final failureEvent = loginViewModel.loginEvent as FailureEvent;
               return Text("Failure: ${failureEvent.error}");
             default:
-              return RaisedButton(child: Text(AppLocalizations.of(context).translate('login_text_button')), onPressed: () {
-                Provider.of<LoginViewModel>(context, listen: false).login("email", "password");
-              });
+              return AppButton(
+                text: AppLocalizations.of(context).translate('login_text_button'),
+                onPressedFunction: () {
+                  Provider.of<LoginViewModel>(context, listen: false).login("email", "password");
+                },
+              );
           }
         }),
       ),

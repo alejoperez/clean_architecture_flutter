@@ -34,6 +34,7 @@ class SampleApp extends StatelessWidget {
       title: 'Clean Architecture Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        accentColor: Colors.redAccent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MultiProvider(
