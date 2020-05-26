@@ -13,6 +13,10 @@ class LoginResponseDTO extends BaseResponseDTO {
     token: json['token'],
     error: json['error'],
   );
+
+  @override
+  List<Object> get props => [...super.props,userId,token];
+
 }
 
 

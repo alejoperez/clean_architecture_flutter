@@ -10,4 +10,7 @@ class LoginResult extends BaseResult {
       : assert(userId != null),
         assert(token != null),
         super(error: error);
+
+  @override
+  List<Object> get props => [...super.props,userId,token];
 }

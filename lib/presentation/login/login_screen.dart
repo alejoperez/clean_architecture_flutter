@@ -12,29 +12,36 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBarTitle: AppLocalizations.of(context).translate('login_text_button'),
-      bodyWidget: Center(
-        child: Consumer<LoginViewModel>(builder: (ctx, loginViewModel, _) {
-          switch (loginViewModel.state) {
-            case ViewState.Waiting:
-              return AppProgressIndicator();
-            case ViewState.Done:
-              if (loginViewModel.loginEvent.result == EventResult.Success) {
-                final successEvent = loginViewModel.loginEvent as SuccessEvent;
-                return Text("Success: ${successEvent.data.toString()}");
-              }
-              final failureEvent = loginViewModel.loginEvent as FailureEvent;
-              return Text("Failure: ${failureEvent.error}");
-            default:
-              return AppButton(
-                text: AppLocalizations.of(context).translate('login_text_button'),
-                onPressedFunction: () {
-                  Provider.of<LoginViewModel>(context, listen: false).login("email", "password");
-                },
-              );
+        appBarTitle: AppLocalizations.of(context).translate('login_text_button'),
+        bodyWidget: Center(child: LoginButton()));
+  }
+}
+
+class LoginButton extends StatelessWidget {
+
+  String textButton(BuildContext ctx) => AppLocalizations.of(ctx).translate('login_text_button');
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<LoginViewModel>(builder: (ctx, loginViewModel, _) {
+      switch (loginViewModel.state) {
+        case ViewState.Waiting:
+          return AppProgressIndicator();
+        case ViewState.Done:
+          if (loginViewModel.getLoginEvent.result == EventResult.Success) {
+            final successEvent = loginViewModel.getLoginEvent as SuccessEvent;
+            return Text("Success: ${successEvent.data.toString()}");
           }
-        }),
-      ),
-    );
+          final failureEvent = loginViewModel.getLoginEvent as FailureEvent;
+          return Text("Failure: ${failureEvent.error}");
+        default:
+          return AppButton(
+            text: textButton(context),
+            onPressedFunction: () {
+              Provider.of<LoginViewModel>(context, listen: false).login("email", "password");
+            },
+          );
+      }
+    });
   }
 }
