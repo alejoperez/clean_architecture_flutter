@@ -1,7 +1,7 @@
 import 'package:clean/data/repositories/user/user_data_source_contracts.dart';
 import 'package:clean/data/webservices/dto/request/login_request_dto.dart';
-import 'package:clean/dependency_injection.dart';
 import 'package:clean/domain/model/login_result.dart';
+import 'package:clean/presentation/base/app/dependency_injection.dart';
 
 abstract class ILoginUseCase {
   Future<LoginResult> execute(String email, String password);

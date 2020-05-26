@@ -1,5 +1,5 @@
-import 'package:clean/dependency_injection.dart';
 import 'package:clean/domain/use_cases/login/login_use_case.dart';
+import 'package:clean/presentation/base/app/dependency_injection.dart';
 import 'package:clean/presentation/base/view_model/base_view_model.dart';
 
 class LoginViewModel extends BaseViewModel {

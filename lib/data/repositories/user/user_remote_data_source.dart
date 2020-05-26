@@ -1,4 +1,5 @@
-import 'package:clean/dependency_injection.dart';
+
+import 'package:clean/presentation/base/app/dependency_injection.dart';
 
 import 'user_data_source_contracts.dart';
 import '../../webservices/dto/response/login_response_dto.dart';

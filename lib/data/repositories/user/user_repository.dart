@@ -2,8 +2,8 @@
 import 'package:clean/data/repositories/user/user_data_source_contracts.dart';
 import 'package:clean/data/webservices/dto/request/login_request_dto.dart';
 import 'package:clean/data/webservices/dto/response/login_response_dto.dart';
-import 'package:clean/dependency_injection.dart';
 import 'package:clean/domain/model/login_result.dart';
+import 'package:clean/presentation/base/app/dependency_injection.dart';
 
 class UserRepository implements IUserRepository {
   final _localDataSource = locator<IUserLocalDataSource>();
