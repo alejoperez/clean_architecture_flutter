@@ -7,4 +7,5 @@ void main() {
   FlavorConfig.appFlavor = Flavor.DEV;
   DependencyInjection.init();
   runApp(App());
+  
 }
