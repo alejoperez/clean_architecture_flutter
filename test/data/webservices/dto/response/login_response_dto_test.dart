@@ -48,7 +48,7 @@ void main() {
       final dto = LoginResponseDTO(
           error: null,
           userId: null,
-          token: "null"
+          token: null
       );
       final actual = dto.toDomain();
       final expected = LoginResult(
